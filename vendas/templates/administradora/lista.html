@@ -1,0 +1,133 @@
+{% extends 'home.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+    table {
+        background-color: var(--white-color);
+    }
+
+    .table-primary {
+        border-color: rgba(112, 112, 112, 0.3);
+        --bs-table-bg: none;
+        background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(220, 220, 220, 1));
+    }
+
+    .table-bordered {
+        border-width: 2px;
+        border-color: rgba(112, 112, 112, 0.3);
+    }
+
+    /* label {
+        color: #932523;
+    } */
+</style>
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 mt-5">
+        <div class="row">
+            <div class="col-8">
+                <h1 style="color: #932523;">Configurar Administradora</h1>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-danger float-end" style="margin-right: 8px;" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    ADICIONAR
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="col">Administradora</th>
+                        <th scope="col">Regra de Comissionamento</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for administradora in administradoras %}
+                    <tr>
+                        <td>{{ administradora.Administradora.Nome }}</td>
+                        <td>{{ administradora.Percentual_Comissao }}%</td>
+                        <td>{{ administradora.Administradora.Status }}</td>
+                        <td><a href="" class="btn btn-danger">EDITAR</a> <a href="" class="btn btn-danger">REMOVER</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="col-6">
+                            {{ form.Tipo_Cadastro|as_crispy_field }}
+                            {{ form.Logo|as_crispy_field }}
+                            {{ form.Nome|as_crispy_field }}
+                            {{ form.Email|as_crispy_field }}
+                            {{ form.CNPJ|as_crispy_field }}
+                            {{ form.Status|as_crispy_field }}
+                        </div>
+                        <div class="col-6">
+                            <div class="d-none">
+                                {{ formComissionamento.Administradora }}
+                            </div>
+                            {{ formComissionamento.Tipo_Regra|as_crispy_field }}
+                            <h5 style="color: #932523;">Regra de Comissionamento</h5>
+                            {{ formComissionamento.Nome|as_crispy_field }}
+                            <div class="form-row">
+                                <div class="col-6">
+                                    {{ formComissionamento.Percentual_Comissao|as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ formComissionamento.Numero_Parcelas_Comissao|as_crispy_field }}
+                                </div>
+                            </div>
+                            <h5 style="color: #932523;">Regras de Estorno</h5>
+                            {{ formComissionamento.Tempo_Acompanhamento_Estorno|as_crispy_field }}
+                            <div class="form-row">
+                                <div class="col-6">
+                                    {{ formComissionamento.Percentual_Estorno|as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ formComissionamento.Numero_Parcelas_Estorno|as_crispy_field }}
+                                </div>
+                            </div>
+                            <h5 style="color: #932523;">Data de uso da Regra</h5>
+                            <div class="form-row">
+                                <div class="col-6">
+                                    {{ formComissionamento.Inicio_Regra|as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ formComissionamento.Fim_Regra|as_crispy_field }}
+                                </div>
+                            </div>
+                            <h5 style="color: #932523;">Data Corte de Relatório</h5>
+                            {{ formComissionamento.Limite_Relatorio|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <center>
+                    <button type="submit" class="btn btn-danger mb-3">CADASTRAR</button>
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

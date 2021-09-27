@@ -1,0 +1,157 @@
+{% extends 'home.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+    .nav-tabs .nav-link.active {
+        background-color: #751D1B;
+        color: white;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .nav-tabs .nav-link {
+        color: black;
+        border: solid 1px lightgray;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .nav-item {
+        margin-left: 1%;
+    }
+</style>
+
+<div class="row mt-5">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation" style="margin-left: 10%;">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                    role="tab" aria-controls="home" aria-selected="true">Dados da proposta</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#Dados_pessoais"
+                    type="button" role="tab" aria-controls="profile" aria-selected="false">Dados pessoais</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#Endereço" type="button"
+                    role="tab" aria-controls="contact" aria-selected="false">Endereço</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#Informações_adicionais"
+                    type="button" role="tab" aria-controls="contact" aria-selected="false">Informações
+                    adicionais</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#Dados_comerciais"
+                    type="button" role="tab" aria-controls="contact" aria-selected="false">Dados comerciais</button>
+            </li>
+        </ul>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="d-none">
+                {{ form.Tipo_Venda }}
+                {{ form.Tipo_Pessoa }}
+            </div>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row mt-3">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            {{ form.Administradora|as_crispy_field }}
+                            {{ form.Representante|as_crispy_field }}
+                            {{ form.Grupo|as_crispy_field }}
+                            {{ form.Cota|as_crispy_field }}
+                            {{ form.Contrato|as_crispy_field }}
+                            {{ form.Valor_Credito|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="Dados_pessoais" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="row mt-3">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            {{ form.Nome|as_crispy_field }}
+                            {{ form.Email|as_crispy_field }}
+                            {{ form.CPF|as_crispy_field }}
+                            {{ form.RG_CNH|as_crispy_field }}
+                            <div class="form-row">
+                                <div class="col-6">
+                                    {{ form.Orgao_Expedidor|as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ form.Data_Emissao|as_crispy_field }}
+                                </div>
+                            </div>
+                            {{ form.Data_Nascimento|as_crispy_field }}
+                            {{ form.Telefone|as_crispy_field }}
+                            {{ form.Celular|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="Endereço" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="row mt-3">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            {{ form.CEP|as_crispy_field }}
+                            {{ form.Estado|as_crispy_field }}
+                            {{ form.Cidade|as_crispy_field }}
+                            {{ form.Rua|as_crispy_field }}
+                            {{ form.Numero|as_crispy_field }}
+                            {{ form.Complemento|as_crispy_field }}
+                            {{ form.Bairro|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="Informações_adicionais" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="row mt-3">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            {{ form.Nome_Pai|as_crispy_field }}
+                            {{ form.Nome_Mae|as_crispy_field }}
+                            {{ form.Sexo|as_crispy_field }}
+                            {{ form.Natural_Cidade|as_crispy_field }}
+                            {{ form.Nacionalidade|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="Dados_comerciais" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="row mt-3">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            {{ form.Nome_Empresa|as_crispy_field }}
+                            {{ form.Tempo_Empresa|as_crispy_field }}
+                            {{ form.Profissao|as_crispy_field }}
+                            {{ form.Renda|as_crispy_field }}
+                            {{ form.CEP_Empresa|as_crispy_field }}
+                            {{ form.Estado_Empresa|as_crispy_field }}
+                            {{ form.Cidade_Empresa|as_crispy_field }}
+                            {{ form.Rua_Empresa|as_crispy_field }}
+                            {{ form.Numero_Empresa|as_crispy_field }}
+                            {{ form.Complemento_Empresa|as_crispy_field }}
+                            {{ form.Bairro_Empresa|as_crispy_field }}
+                            {{ form.Telefone_Empresa|as_crispy_field }}
+                            {{ form.Patrimonio_Total|as_crispy_field }}
+                            <center>
+                                <button type="submit" class="btn btn-danger mb-2">FINALIZAR CADASTRO</button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+<script>
+    console.log(window.location.href.split('/'))
+
+    tipo_venda = window.location.href.split('/')[4]
+    tipo_pessoa = window.location.href.split('/')[5]
+
+    document.querySelector("#id_Tipo_Venda").value = tipo_venda
+    document.querySelector("#id_Tipo_Pessoa").value = tipo_pessoa
+</script>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+/*Folha de estilo Redesul*/
+
+:root {
+    --black-color: rgba(102, 102, 102, 1);
+    --white-color: rgba(255, 255, 255, 1);
+    --red-color: rgba(183, 34, 32, 1);
+    --dark-red-color: rgba(115, 48, 48, 1);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-image: url(../../img/pagina-de-login.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(217, 20, 20, 0.73);
+}   
+
+/* Padrões */
+
+.element-center-XY {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.element-center-X {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.element-center-Y {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* Padrões */
+
+/*caixa de login*/
+
+form#login-form div#caixa-de-login {
+    width: 32.34vw;
+    height: 57.58vh;
+    background-color: var(--white-color);
+    border-radius: 20px;
+} 
+
+form#login-form div#caixa-de-login div#logo-redesul {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 20vh;
+    width: 10vw;
+}
+
+form#login-form div#caixa-de-login div#logo-redesul img{
+    height: 100%;
+    width: 100%;
+}
+
+form#login-form div#caixa-de-login div.container {
+    height: 85%;
+    width: 100%;
+}
+
+form#login-form div#caixa-de-login input#campo-formulario-email {
+    padding: 1.5%;
+    margin-bottom: 3.70vw;
+    border-color: rgba(210, 210, 210, 1);
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.16);
+    width: 27.81vw;
+    font-size: 1em;
+}
+
+form#login-form div#caixa-de-login div.senha-input input#campo-formulario-senha {
+    padding: 1.5%;
+    margin-top: 3.70vw;
+    border-color: rgba(210, 210, 210, 1);
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    border-radius: 5px;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.16);
+    width: 27.81vw;
+    font-size: 1em;
+    position: relative;
+}
+
+form#login-form div#caixa-de-login div.senha-input > i {
+    color: var(--black-color);
+    right: 2.5%;
+    position: relative;
+    cursor: pointer;
+}
+
+form#login-form div#caixa-de-login div#botao-login {
+    margin-top: 7%;
+}
+
+form#login-form div#caixa-de-login div#botao-login button {
+    color: var(--white-color);
+    width: 27.81vw;
+    padding: 2.5%;
+    font-size: 1em;
+    background-color: var(--red-color);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.37);
+}
+
+/*caixa de login*/
