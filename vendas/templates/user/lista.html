@@ -1,0 +1,142 @@
+{% extends 'home.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+    table {
+        background-color: var(--white-color);
+    }
+
+    .table-primary {
+        border-color: rgba(112, 112, 112, 0.3);
+        --bs-table-bg: none;
+        background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(220, 220, 220, 1));
+    }
+
+    .table-bordered {
+        border-width: 2px;
+        border-color: rgba(112, 112, 112, 0.3);
+    }
+
+    /* label {
+        color: #932523;
+    } */
+</style>
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 mt-5">
+        <div class="row">
+            <div class="col-8">
+                <h1 style="color: #932523;">Usuários</h1>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-danger float-end" style="margin-right: 8px;" data-bs-toggle="modal"
+                    data-bs-target="#modalUser">
+                    ADICIONAR
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="col">Nível</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">CPF/CNPJ</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.Nivel_Acesso }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.CNPJ }}</td>
+                        <td>{{ user.Status }}</td>
+                        <td><a href="{% url 'user_edit' user.id %}" class="btn btn-danger">EDITAR</a> <a href="{% url 'user_delete' user.id %}" class="btn btn-danger">REMOVER</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <h3 style="color: #932523;">Adicionar usuário</h3>
+                    <div class="form-row">
+                        <div class="col-12">
+                            {{ form.username|as_crispy_field }}
+
+                            <div id="div_id_Nivel_Acesso" class="form-group"> 
+                                <label for="id_Nivel_Acesso" class="">
+                                    Nivel Acesso
+                                </label>
+                                <div class=""> 
+                                    <select name="Nivel_Acesso" class="select form-control"
+                                        id="id_Nivel_Acesso">
+                                        <option value="" selected="">---------</option>
+                                        <option value="Superior">Superior</option>
+                                        <option value="Administrativo">Administrativo</option>
+                                        <option value="Representante">Representante</option>
+                                    </select> 
+                                </div>
+                            </div>
+
+                            <div id="div_id_email" class="form-group"> <label for="id_email" class="">
+                                    Email address
+                                </label>
+                                <div class=""> <input type="email" name="email" maxlength="254"
+                                        class="emailinput form-control" id="id_email"> </div>
+                            </div>
+
+
+                            <div id="div_id_CNPJ" class="form-group"> <label for="id_CNPJ" class="">
+                                    CNPJ
+                                </label>
+                                <div class=""> <input type="text" name="CNPJ" maxlength="255"
+                                        class="textinput textInput form-control" id="id_CNPJ"> </div>
+                            </div>
+
+                            {{ form.password1|as_crispy_field }}
+                            {{ form.password2|as_crispy_field }}
+
+                            <div id="div_id_Status" class="form-group"> <label for="id_Status" class="">
+                                    Status
+                                </label>
+                                <div class=""> <input type="text" name="Status" maxlength="255"
+                                        class="textinput textInput form-control" id="id_Status"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <center>
+                    <button type="submit" class="btn btn-danger mb-3">CADASTRAR</button>
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelector("#hint_id_password1").classList.add('d-none')
+    document.querySelector("#hint_id_password2").classList.add('d-none')
+    document.querySelector("#hint_id_username").classList.add('d-none')
+</script>
+
+{% endblock %}

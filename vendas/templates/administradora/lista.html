@@ -49,6 +49,7 @@
                         <th scope="col">Administradora</th>
                         <th scope="col">Regra de Comissionamento</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Regra</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -58,7 +59,8 @@
                         <td>{{ administradora.Administradora.Nome }}</td>
                         <td>{{ administradora.Percentual_Comissao }}%</td>
                         <td>{{ administradora.Administradora.Status }}</td>
-                        <td><a href="" class="btn btn-danger">EDITAR</a> <a href="" class="btn btn-danger">REMOVER</a></td>
+                        <td>{{ administradora.Tipo_Regra }}</td>
+                        <td><a href="{% url 'administradora_edit' administradora.Administradora.pk administradora.id %}" class="btn btn-danger">EDITAR</a> <a href="{% url 'administradora_delete' administradora.id %}" class="btn btn-danger">REMOVER</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -88,7 +90,7 @@
                             </div>
                             {{ formComissionamento.Tipo_Regra|as_crispy_field }}
                             <h5 style="color: #932523;">Regra de Comissionamento</h5>
-                            {{ formComissionamento.Nome|as_crispy_field }}
+                            {{ formComissionamento.Nome_Regra|as_crispy_field }}
                             <div class="form-row">
                                 <div class="col-6">
                                     {{ formComissionamento.Percentual_Comissao|as_crispy_field }}

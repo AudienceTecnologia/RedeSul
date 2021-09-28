@@ -21,3 +21,13 @@ class RepresentanteForm(forms.ModelForm):
     class Meta:
         model = Representante
         fields = '__all__'
+
+class FinanciamentoForm(forms.ModelForm):
+    class Meta:
+        model = Financiamento
+        fields = '__all__'
+
+class HomeEquityForm(forms.ModelForm):
+    class Meta:
+        model = HomeEquity
+        fields = '__all__'

@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.fields import CharField, DateField, DecimalField
+from django.db.models.fields import CharField, DateField, DecimalField, IntegerField
 from django.db.models.fields.files import ImageField
 from django.db.models.fields.related import ForeignKey
 
@@ -40,12 +40,12 @@ class Administradora(models.Model):
 class RegraComissionamento(models.Model):
     Administradora = ForeignKey(Administradora, on_delete=models.CASCADE, blank=True, null=True)
     Tipo_Regra = CharField(max_length=255, choices=TIPO_REGRA, blank=True, null=True)
-    Nome = CharField(max_length=255, blank=True, null=True)
+    Nome_Regra = CharField(max_length=255, blank=True, null=True)
     Percentual_Comissao = DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    Numero_Parcelas_Comissao = DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
+    Numero_Parcelas_Comissao = IntegerField(blank=True, null=True)
     Tempo_Acompanhamento_Estorno = CharField(max_length=255, choices=TEMPO_ACOMPANHAMENTO, blank=True, null=True)
     Percentual_Estorno = DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    Numero_Parcelas_Estorno = DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
+    Numero_Parcelas_Estorno = IntegerField(blank=True, null=True)
     Inicio_Regra = DateField(blank=True, null=True)
     Fim_Regra = DateField(blank=True, null=True)
     Limite_Relatorio = DateField(blank=True, null=True)
@@ -70,11 +70,11 @@ class Representante(models.Model):
     CPF_CNPJ = CharField(max_length=255, blank=True, null=True)
     Status = CharField(max_length=255, blank=True, null=True)
     Percentual_Comissao = DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    Numero_Parcelas_Comissao = DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
+    Numero_Parcelas_Comissao = IntegerField(blank=True, null=True)
     Categoria = CharField(max_length=255, choices=CATEGORIA, blank=True, null=True)
     Tipo_Equipe = CharField(max_length=255, choices=TIPO_EQUIPE, blank=True, null=True)
     Percentual_Comissao_Equipe = DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    Numero_Parcelas_Estorno = DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
+    Numero_Parcelas_Estorno = IntegerField(blank=True, null=True)
     Percentual_Comissao_Estorno = DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
 
 TIPO_VENDA = [
@@ -144,4 +144,131 @@ class Consorcio(models.Model):
     Bairro_Empresa = CharField(max_length=255, blank=True, null=True)
     Telefone_Empresa = CharField(max_length=255, blank=True, null=True)
     Patrimonio_Total = CharField(max_length=255, blank=True, null=True)
+
+    Razao_Social = CharField(max_length=255, blank=True, null=True)
+    CNPJ = CharField(max_length=255, blank=True, null=True)
+    Inscricao_Estadual = CharField(max_length=255, blank=True, null=True)
+    Fundacao = DateField(blank=True, null=True)
+    Inscricao_Estadual = CharField(max_length=255, blank=True, null=True)
+    Faturamento_Mensal = CharField(max_length=255, blank=True, null=True)
+
+TIPO_BEM = [
+    ('Imóvel', 'Imóvel'),
+    ('Automóvel', 'Automóvel'),
+]
+
+class Financiamento(models.Model):
+    Tipo_Venda = CharField(max_length=255, choices=TIPO_VENDA, blank=True, null=True)
+    Tipo_Pessoa = CharField(max_length=255, choices=TIPO_PESSOA, blank=True, null=True)
+    Administradora = ForeignKey(Administradora, on_delete=models.CASCADE, blank=True, null=True)
+    Representante = ForeignKey(Representante, on_delete=models.CASCADE, blank=True, null=True)
+    Tipo_Bem = CharField(max_length=255, choices=TIPO_BEM, blank=True, null=True)
     
+    Contrato = CharField(max_length=255, blank=True, null=True)
+    Valor_Credito = CharField(max_length=255, blank=True, null=True)
+
+    Status = CharField(max_length=255, blank=True, null=True)
+
+    Nome = CharField(max_length=255, blank=True, null=True)
+    CPF = CharField(max_length=255, blank=True, null=True)
+    RG_CNH = CharField(max_length=255, blank=True, null=True)
+    Orgao_Expedidor = CharField(max_length=255, blank=True, null=True)
+    Data_Emissao = DateField(blank=True, null=True)
+    Data_Nascimento = DateField(blank=True, null=True)
+    
+    Razao_Social = CharField(max_length=255, blank=True, null=True)
+    CNPJ = CharField(max_length=255, blank=True, null=True)
+    Inscricao_Estadual = CharField(max_length=255, blank=True, null=True)
+    Fundacao = DateField(blank=True, null=True)
+
+    Email = CharField(max_length=255, blank=True, null=True)
+    Telefone = CharField(max_length=255, blank=True, null=True)
+    Celular = CharField(max_length=255, blank=True, null=True)
+
+    Faturamento_Mensal = CharField(max_length=255, blank=True, null=True)
+    
+    CEP = CharField(max_length=255, blank=True, null=True)
+    Estado = CharField(max_length=255, blank=True, null=True)
+    Cidade = CharField(max_length=255, blank=True, null=True)
+    Rua = CharField(max_length=255, blank=True, null=True)
+    Numero = CharField(max_length=255, blank=True, null=True)
+    Complemento = CharField(max_length=255, blank=True, null=True)
+    Bairro = CharField(max_length=255, blank=True, null=True)
+
+    Nome_Pai = CharField(max_length=255, blank=True, null=True)
+    Nome_Mae = CharField(max_length=255, blank=True, null=True)
+    Sexo = CharField(max_length=255, choices=SEXO, blank=True, null=True)
+    Natural_Cidade = CharField(max_length=255, blank=True, null=True)
+    Nacionalidade = CharField(max_length=255, blank=True, null=True)
+
+    Nome_Empresa = CharField(max_length=255, blank=True, null=True)
+    Tempo_Empresa = CharField(max_length=255, blank=True, null=True)
+    Profissao = CharField(max_length=255, blank=True, null=True)
+    Renda = CharField(max_length=255, blank=True, null=True)
+    CEP_Empresa = CharField(max_length=255, blank=True, null=True)
+    Estado_Empresa = CharField(max_length=255, blank=True, null=True)
+    Cidade_Empresa = CharField(max_length=255, blank=True, null=True)
+    Rua_Empresa = CharField(max_length=255, blank=True, null=True)
+    Numero_Empresa = CharField(max_length=255, blank=True, null=True)
+    Complemento_Empresa = CharField(max_length=255, blank=True, null=True)
+    Bairro_Empresa = CharField(max_length=255, blank=True, null=True)
+    Telefone_Empresa = CharField(max_length=255, blank=True, null=True)
+    Patrimonio_Total = CharField(max_length=255, blank=True, null=True)
+
+class HomeEquity(models.Model):
+    Tipo_Venda = CharField(max_length=255, choices=TIPO_VENDA, blank=True, null=True)
+    Tipo_Pessoa = CharField(max_length=255, choices=TIPO_PESSOA, blank=True, null=True)
+    Administradora = ForeignKey(Administradora, on_delete=models.CASCADE, blank=True, null=True)
+    Representante = ForeignKey(Representante, on_delete=models.CASCADE, blank=True, null=True)
+    Tipo_Bem = CharField(max_length=255, choices=TIPO_BEM, blank=True, null=True)
+    
+    Contrato = CharField(max_length=255, blank=True, null=True)
+    Valor_Credito = CharField(max_length=255, blank=True, null=True)
+
+    Status = CharField(max_length=255, blank=True, null=True)
+
+    Nome = CharField(max_length=255, blank=True, null=True)
+    CPF = CharField(max_length=255, blank=True, null=True)
+    RG_CNH = CharField(max_length=255, blank=True, null=True)
+    Orgao_Expedidor = CharField(max_length=255, blank=True, null=True)
+    Data_Emissao = DateField(blank=True, null=True)
+    Data_Nascimento = DateField(blank=True, null=True)
+    
+    Razao_Social = CharField(max_length=255, blank=True, null=True)
+    CNPJ = CharField(max_length=255, blank=True, null=True)
+    Inscricao_Estadual = CharField(max_length=255, blank=True, null=True)
+    Fundacao = DateField(blank=True, null=True)
+
+    Email = CharField(max_length=255, blank=True, null=True)
+    Telefone = CharField(max_length=255, blank=True, null=True)
+    Celular = CharField(max_length=255, blank=True, null=True)
+
+    Faturamento_Mensal = CharField(max_length=255, blank=True, null=True)
+    
+    CEP = CharField(max_length=255, blank=True, null=True)
+    Estado = CharField(max_length=255, blank=True, null=True)
+    Cidade = CharField(max_length=255, blank=True, null=True)
+    Rua = CharField(max_length=255, blank=True, null=True)
+    Numero = CharField(max_length=255, blank=True, null=True)
+    Complemento = CharField(max_length=255, blank=True, null=True)
+    Bairro = CharField(max_length=255, blank=True, null=True)
+
+    Nome_Pai = CharField(max_length=255, blank=True, null=True)
+    Nome_Mae = CharField(max_length=255, blank=True, null=True)
+    Sexo = CharField(max_length=255, choices=SEXO, blank=True, null=True)
+    Natural_Cidade = CharField(max_length=255, blank=True, null=True)
+    Nacionalidade = CharField(max_length=255, blank=True, null=True)
+    
+    Nome_Empresa = CharField(max_length=255, blank=True, null=True)
+    Tempo_Empresa = CharField(max_length=255, blank=True, null=True)
+    Profissao = CharField(max_length=255, blank=True, null=True)
+    Renda = CharField(max_length=255, blank=True, null=True)
+    CEP_Empresa = CharField(max_length=255, blank=True, null=True)
+    Estado_Empresa = CharField(max_length=255, blank=True, null=True)
+    Cidade_Empresa = CharField(max_length=255, blank=True, null=True)
+    Rua_Empresa = CharField(max_length=255, blank=True, null=True)
+    Numero_Empresa = CharField(max_length=255, blank=True, null=True)
+    Complemento_Empresa = CharField(max_length=255, blank=True, null=True)
+    Bairro_Empresa = CharField(max_length=255, blank=True, null=True)
+    Telefone_Empresa = CharField(max_length=255, blank=True, null=True)
+    Patrimonio_Total = CharField(max_length=255, blank=True, null=True)

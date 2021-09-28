@@ -1,0 +1,198 @@
+{% extends 'home.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+    :root {
+        --black-color: rgba(102, 102, 102, 1);
+        --white-color: rgba(255, 255, 255, 1);
+        --red-color: rgba(183, 34, 32, 1);
+        --dark-red-color: rgba(115, 48, 48, 1);
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        background-image: url(../../img/fundo-2.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    /* Header */
+
+    header nav#header-test {
+        background-color: var(--white-color);
+        box-shadow: 0px 12px 12px #00000012;
+        height: 9.44vh;
+    }
+
+    /* nav filtros */
+
+    nav.filtros {
+        margin-top: 4.72vh;
+    }
+
+    .select-box {
+        font-size: 0.90em;
+        height: 44px;
+        width: 165px;
+        border-radius: 9px;
+        border-color: rgba(193, 193, 193, 1);
+        border-width: 1px;
+        cursor: pointer;
+    }
+
+    .select-box:focus {
+        transition: 50ms;
+        box-shadow: none;
+        border-color: var(--red-color);
+        border-width: 3px;
+    }
+
+    .select-box:hover {
+        border-color: var(--red-color);
+    }
+
+    .select-label {
+        display: none;
+    }
+
+    /*Ocultando o option selecionado*/
+
+
+    div.campo-pesquisa {
+        margin-left: 21.90vh;
+        position: relative;
+        align-items: center;
+    }
+
+    div.campo-pesquisa img {
+        position: absolute;
+        bottom: 32%;
+        left: 92%;
+        color: var(--black-color);
+    }
+
+    .input-de-pesquisa {
+        height: 44px;
+        border-radius: 9px;
+        border-width: 1px;
+    }
+
+    .input-de-pesquisa:hover {
+        border-color: var(--red-color);
+    }
+
+    .input-de-pesquisa:focus {
+        transition: 50ms;
+        box-shadow: none;
+        border-color: var(--red-color);
+        border-width: 3px;
+    }
+
+    .filtro-equipes {
+        text-decoration: none;
+        color: var(--red-color);
+    }
+
+    .filtro-equipes:hover {
+        text-decoration: none;
+        border-radius: 5px;
+        color: var(--red-color);
+        padding: 3%;
+        background-color: rgba(232, 232, 232, 1);
+        transition: 200ms;
+    }
+
+    .filtro-equipes-ativo {
+        padding: 3%;
+        border-radius: 5px;
+        background-color: rgba(232, 232, 232, 1);
+        text-decoration: none;
+        color: var(--red-color);
+    }
+
+    .row-filtro-equipes {
+        margin: 3.01% 0px;
+    }
+
+    table {
+        background-color: var(--white-color);
+    }
+
+    .table-primary {
+        border-color: rgba(112, 112, 112, 0.3);
+        --bs-table-bg: none;
+        background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(220, 220, 220, 1));
+    }
+
+    .table-bordered {
+        border-width: 2px;
+        border-color: rgba(112, 112, 112, 0.3);
+    }
+</style>
+
+<nav class="filtros">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <select name="Administradora" class="form-select text-center select-box">
+                    <option selected disabled value="" class="select-label">Administradora</option>
+                    <option value="1">Administradora 1</option>
+                    <option value="2">Administradora 2</option>
+                    <option value="3">Administradora 3</option>
+                </select>
+                <!--Administradora-->
+            </div>
+            <div class="col-2">
+                <select class="form-select text-center select-box">
+                    <option selected disabled value="" class="select-label">Ano</option>
+                    <option value="1">2018</option>
+                    <option value="2">2019</option>
+                    <option value="3">2020</option>
+                    <option value="3">2021</option>
+                </select>
+                <!--Representante-->
+            </div>
+            <div class="col-6">
+                <div class="form campo-pesquisa">
+                    <input class="form-control form-input mr-sm-2 input-de-pesquisa" type="search"
+                        placeholder="Pesquisar" aria-label="Pesquisar">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="col">Administradora</th>
+                        <th scope="col">Representante</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Crédito</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for relatorio in relatorios %}
+                    <tr>
+                        <th>{{ relatorio.Administradora }}</th>
+                        <th>{{ relatorio.Representante }}</th>
+                        <th>{{ relatorio.Nome }}</th>
+                        <th>{{ relatorio.Valor_Credito }}</th>
+                        <th>{{ relatorio.Status }}</th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

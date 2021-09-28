@@ -8,6 +8,23 @@ urlpatterns = [
     path('consorcio_relatorio/', views.consorcio_relatorio, name='consorcio_relatorio'),
 
     path('administradora_lista/', views.administradora_lista, name='administradora_lista'),
+    path('administradora_delete/<int:id>', views.administradora_delete, name='administradora_delete'),
+    path('administradora_edit/<int:administradora_id>/<int:comissionamento_id>', views.administradora_edit, name='administradora_edit'),
+    path('administradora_nova_regra/<int:administradora_id>/<int:comissionamento_id>', views.administradora_nova_regra, name='administradora_nova_regra'),
 
     path('representante_lista/', views.representante_lista, name='representante_lista'),
+    path('representante_delete/<int:id>', views.representante_delete, name='representante_delete'),
+    path('representante_edit/<int:id>', views.representante_edit, name='representante_edit'),
+
+    path('financiamento_cadastro/<str:tipo_venda>/<str:tipo_pessoa>', views.financiamento_cadastro, name='financiamento_cadastro'),
+    path('financiamento_relatorio/', views.financiamento_relatorio, name='financiamento_relatorio'),
+
+    path('homeequity_cadastro/<str:tipo_venda>/<str:tipo_pessoa>', views.homeequity_cadastro, name='homeequity_cadastro'),
+    path('homeequity_relatorio/', views.homeequity_relatorio, name='homeequity_relatorio'),
+
+    path('user_edit_name/<int:id>', views.user_edit_name, name='user_edit_name'),
+    path('change_password/', views.change_password, name='change_password'),
+    path('user_lista/', views.user_lista, name='user_lista'),
+    path('user_delete/<int:id>', views.user_delete, name='user_delete'),
+    path('user_edit/<int:id>', views.user_edit, name='user_edit'),
 ]

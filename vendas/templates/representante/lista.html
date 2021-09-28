@@ -58,7 +58,7 @@
                         <td>{{ representante.Nome }}</td>
                         <td>{{ representante.Percentual_Comissao }}%</td>
                         <td>{{ representante.Status }}</td>
-                        <td><a href="" class="btn btn-danger">EDITAR</a> <a href="" class="btn btn-danger">REMOVER</a></td>
+                        <td><a href="{% url 'representante_edit' representante.id %}" class="btn btn-danger">EDITAR</a> <a href="{% url 'representante_delete' representante.id %}" class="btn btn-danger">REMOVER</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

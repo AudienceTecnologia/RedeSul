@@ -33,6 +33,12 @@
 </head>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+    * {
+        font-family: 'Montserrat', sans-serif;
+    }
+
     .fa-bars {
         font-size: 25px;
         color: #723130;
@@ -130,8 +136,8 @@
                 <button type="button" onclick="document.getElementById('logout').click()" style="border-color: transparent; background-color: transparent;">
                     <i class="fa fa-sign-out-alt"></i>
                 </button>
-                <img class="p-3" src="{% static 'img/avatar.png' %}" width="20%" alt="">
-                <span style="font-size: 20px; margin-top: 5%; margin-left: 2%;">Olá, {{ request.user }}!</span>
+                <img class="p-3" src="{% static 'img/avatar.png' %}" width="24%" alt="">
+                <span style="font-size: 20px; margin-top: 7%; margin-left: 2%;">Olá, {{ request.user }}!</span>
                 <button type="button" style="border-color: transparent; background-color: transparent;">
                     <i class="far fa-bell"></i>
                 </button>
@@ -140,21 +146,21 @@
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel" style="width: 25%;">
                 <div class="offcanvas-body" style="background-color: #6A3131;">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 mt-5">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#"
-                                style="color: white; font-size: 20px; border-bottom: solid 2px white;">
+                                style="color: white; font-size: 20px; border-bottom: solid 1px #ffffff9e;">
                                 <i class="fa fa-shopping-cart ml-2 mr-2"></i> Vendas
                             </a>
                         </li>
                         <li class="nav-item dropdown ">
                             <a class="nav-link" data-bs-toggle="collapse" href="#collapseExample" role="button"
                                 aria-expanded="false" aria-controls="collapseExample"
-                                style="color: white; font-size: 20px; border-bottom: solid 2px white;">
+                                style="color: white; font-size: 20px; border-bottom: solid 1px #ffffff9e;">
                                 <i class="fa fa-hand-holding-usd ml-2 mr-2"></i> Consórcio <i
                                     class="fa fa-caret-down float-end mt-1 mr-2"></i>
                             </a>
-                            <div class="collapse float-end" id="collapseExample">
+                            <div class="collapse float-left" id="collapseExample">
                                 <a class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                     style="color: white; font-size: 15px; letter-spacing: 2px;">
                                     - Cadastro de vendas
@@ -168,11 +174,11 @@
                         <li class="nav-item dropdown ">
                             <a class="nav-link" data-bs-toggle="collapse" href="#collapseExample2" role="button"
                                 aria-expanded="false" aria-controls="collapseExample"
-                                style="color: white; font-size: 20px; border-bottom: solid 2px white;">
+                                style="color: white; font-size: 20px; border-bottom: solid 1px #ffffff9e;">
                                 <i class="fa fa-database ml-2 mr-2"></i> Comissão <i
                                     class="fa fa-caret-down float-end mt-1 mr-2"></i>
                             </a>
-                            <div class="collapse float-end" id="collapseExample2">
+                            <div class="collapse float-left" id="collapseExample2">
                                 <a class="nav-link" aria-current="page" href="#"
                                     style="color: white; font-size: 15px; letter-spacing: 2px;">
                                     - Comissões a Pagar
@@ -194,11 +200,11 @@
                         <li class="nav-item dropdown ">
                             <a class="nav-link" data-bs-toggle="collapse" href="#collapseExample3" role="button"
                                 aria-expanded="false" aria-controls="collapseExample"
-                                style="color: white; font-size: 20px; border-bottom: solid 2px white;">
+                                style="color: white; font-size: 20px; border-bottom: solid 1px #ffffff9e;">
                                 <i class="fa fa-shield-alt ml-2 mr-2"></i> Regras <i
                                     class="fa fa-caret-down float-end mt-1 mr-2"></i>
                             </a>
-                            <div class="collapse float-end" id="collapseExample3">
+                            <div class="collapse float-left" id="collapseExample3">
                                 <a class="nav-link" aria-current="page" href="#"
                                     style="color: white; font-size: 15px; letter-spacing: 2px;">
                                     - Regra de Comissões
@@ -211,18 +217,18 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#"
-                                style="color: white; font-size: 20px; border-bottom: solid 2px white;">
+                                style="color: white; font-size: 20px; border-bottom: solid 1px #ffffff9e;">
                                 <i class="far fa-comment-dots ml-2 mr-2"></i> Assembléia
                             </a>
                         </li>
                         <li class="nav-item dropdown ">
                             <a class="nav-link" data-bs-toggle="collapse" href="#collapseExample4" role="button"
                                 aria-expanded="false" aria-controls="collapseExample"
-                                style="color: white; font-size: 20px; border-bottom: solid 2px white;">
+                                style="color: white; font-size: 20px; border-bottom: solid 1px #ffffff9e;">
                                 <i class="fa fa-file-alt ml-2 mr-2"></i> Lances <i
                                     class="fa fa-caret-down float-end mt-1 mr-2"></i>
                             </a>
-                            <div class="collapse float-end" id="collapseExample4">
+                            <div class="collapse float-left" id="collapseExample4">
                                 <a class="nav-link" aria-current="page" href="#"
                                     style="color: white; font-size: 15px; letter-spacing: 2px;">
                                     - Relatório de Lance
@@ -235,29 +241,29 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#"
-                                style="color: white; font-size: 20px; border-bottom: solid 2px white;">
+                                style="color: white; font-size: 20px; border-bottom: solid 1px #ffffff9e;">
                                 <i class="fa fa-percentage ml-2 mr-2"></i> Parcelas
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#"
-                                style="color: white; font-size: 20px; border-bottom: solid 2px white;">
+                                style="color: white; font-size: 20px; border-bottom: solid 1px #ffffff9e;">
                                 <i class="fa fa-users ml-1 mr-2"></i> Clientes
                             </a>
                         </li>
                         <li class="nav-item dropdown ">
                             <a class="nav-link" data-bs-toggle="collapse" href="#collapseExample5" role="button"
                                 aria-expanded="false" aria-controls="collapseExample"
-                                style="color: white; font-size: 20px; border-bottom: solid 2px white;">
+                                style="color: white; font-size: 20px; border-bottom: solid 1px #ffffff9e;">
                                 <i class="fa fa-money-bill-alt ml-1 mr-2"></i> Financiamento <i
                                     class="fa fa-caret-down float-end mt-1 mr-2"></i>
                             </a>
-                            <div class="collapse float-end" id="collapseExample5">
-                                <a class="nav-link" aria-current="page" href="#"
+                            <div class="collapse float-left" id="collapseExample5">
+                                <a class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2"
                                     style="color: white; font-size: 15px; letter-spacing: 2px;">
                                     - Cadastro de Vendas
                                 </a>
-                                <a class="nav-link" aria-current="page" href="#"
+                                <a class="nav-link" aria-current="page" href="{% url 'financiamento_relatorio' %}"
                                     style="color: white; font-size: 15px; letter-spacing: 2px;">
                                     - Buscar Clientes
                                 </a>
@@ -266,16 +272,16 @@
                         <li class="nav-item dropdown ">
                             <a class="nav-link" data-bs-toggle="collapse" href="#collapseExample6" role="button"
                                 aria-expanded="false" aria-controls="collapseExample"
-                                style="color: white; font-size: 20px; border-bottom: solid 2px white;">
+                                style="color: white; font-size: 20px; border-bottom: solid 1px #ffffff9e;">
                                 <i class="fa fa-home ml-1 mr-2"></i> Home Equity <i
                                     class="fa fa-caret-down float-end mt-1 mr-2"></i>
                             </a>
-                            <div class="collapse float-end" id="collapseExample6">
-                                <a class="nav-link" aria-current="page" href="#"
+                            <div class="collapse float-left" id="collapseExample6">
+                                <a class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal3"
                                     style="color: white; font-size: 15px; letter-spacing: 2px;">
                                     - Cadastro de Vendas
                                 </a>
-                                <a class="nav-link" aria-current="page" href="#"
+                                <a class="nav-link" aria-current="page" href="{% url 'homeequity_relatorio' %}"
                                     style="color: white; font-size: 15px; letter-spacing: 2px;">
                                     - Buscar Clientes
                                 </a>
@@ -288,16 +294,16 @@
                                 <i class="fa fa-cog ml-1 mr-2"></i> Configurações <i
                                     class="fa fa-caret-down float-end mt-1 mr-2"></i>
                             </a>
-                            <div class="collapse float-end" id="collapseExample7">
-                                <a class="nav-link" aria-current="page" href="#"
+                            <div class="collapse float-left" id="collapseExample7">
+                                <a class="nav-link" aria-current="page" href="{% url 'user_edit' request.user.id %}"
                                     style="color: white; font-size: 15px; letter-spacing: 2px;">
                                     - Editar Perfil
                                 </a>
-                                <a class="nav-link" aria-current="page" href="#"
+                                <a class="nav-link" aria-current="page" href="{% url 'change_password' %}"
                                     style="color: white; font-size: 15px; letter-spacing: 2px;">
                                     - Alterar Senha
                                 </a>
-                                <a class="nav-link" aria-current="page" href="#"
+                                <a class="nav-link" aria-current="page" href="{% url 'user_lista' %}"
                                     style="color: white; font-size: 15px; letter-spacing: 2px;">
                                     - Usuários
                                 </a>
@@ -355,6 +361,98 @@
                             <div class="col justify-content-center text-center">
                                 <a href="" id="pj"></a>
                                 <input type="button" onclick="document.getElementById('pj').href = document.getElementById('pj').href + 'Juridica', document.getElementById('pj').click()" class="btn-tipo-pessoa margin-btn-modal" value="JURÍDICA">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="shadow modal-content" style="border-radius: 15px;">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col justify-content-center text-center">
+                                <h1 class="titulo-opcoes-vendas">Escolha o tipo de venda:</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col justify-content-center text-center">
+                                <input onclick="document.getElementById('pf2').href = '/financiamento_cadastro/Interna/', document.getElementById('pj2').href = '/financiamento_cadastro/Interna/'" class="btn-tipo-venda margin-btn-modal" type="button" value="INTERNA">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col justify-content-center text-center">
+                                <input onclick="document.getElementById('pf2').href = '/financiamento_cadastro/Externa/', document.getElementById('pj2').href = '/financiamento_cadastro/Externa/'" class="btn-tipo-venda margin-btn-modal" type="button" value="EXTERNA">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col justify-content-center text-center">
+                                <h1 class="titulo-opcoes-vendas">Escolha o tipo de pessoa:</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col justify-content-center text-center">
+                                <a href="" id="pf2"></a>
+                                <input type="button" onclick="document.getElementById('pf2').href = document.getElementById('pf2').href + 'Fisica', document.getElementById('pf2').click()" class="btn-tipo-pessoa margin-btn-modal" value="FÍSICA">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col justify-content-center text-center">
+                                <a href="" id="pj2"></a>
+                                <input type="button" onclick="document.getElementById('pj2').href = document.getElementById('pj2').href + 'Juridica', document.getElementById('pj2').click()" class="btn-tipo-pessoa margin-btn-modal" value="JURÍDICA">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="shadow modal-content" style="border-radius: 15px;">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col justify-content-center text-center">
+                                <h1 class="titulo-opcoes-vendas">Escolha o tipo de venda:</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col justify-content-center text-center">
+                                <input onclick="document.getElementById('pf3').href = '/homeequity_cadastro/Interna/', document.getElementById('pj3').href = '/homeequity_cadastro/Interna/'" class="btn-tipo-venda margin-btn-modal" type="button" value="INTERNA">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col justify-content-center text-center">
+                                <input onclick="document.getElementById('pf3').href = '/homeequity_cadastro/Externa/', document.getElementById('pj3').href = '/homeequity_cadastro/Externa/'" class="btn-tipo-venda margin-btn-modal" type="button" value="EXTERNA">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col justify-content-center text-center">
+                                <h1 class="titulo-opcoes-vendas">Escolha o tipo de pessoa:</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col justify-content-center text-center">
+                                <a href="" id="pf3"></a>
+                                <input type="button" onclick="document.getElementById('pf3').href = document.getElementById('pf3').href + 'Fisica', document.getElementById('pf3').click()" class="btn-tipo-pessoa margin-btn-modal" value="FÍSICA">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col justify-content-center text-center">
+                                <a href="" id="pj3"></a>
+                                <input type="button" onclick="document.getElementById('pj3').href = document.getElementById('pj3').href + 'Juridica', document.getElementById('pj3').click()" class="btn-tipo-pessoa margin-btn-modal" value="JURÍDICA">
                             </div>
                         </div>
                     </div>

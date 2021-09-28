@@ -1,0 +1,92 @@
+{% extends 'home.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+    table {
+        background-color: var(--white-color);
+    }
+
+    .table-primary {
+        border-color: rgba(112, 112, 112, 0.3);
+        --bs-table-bg: none;
+        background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(220, 220, 220, 1));
+    }
+
+    .table-bordered {
+        border-width: 2px;
+        border-color: rgba(112, 112, 112, 0.3);
+    }
+
+    /* label {
+        color: #932523;
+    } */
+</style>
+
+<h1 class="mt-4 ml-3" style="color: #932523;">Adicionando Regra</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="d-none">
+        {{ formNovaRegra.Administradora|as_crispy_field }}
+    </div>
+    <div class="modal-body">
+        <h5 style="color: #932523;">Regra de Comissionamento</h5>
+        <div class="form-row">
+            <div class="col-2">
+                {{ formNovaRegra.Tipo_Regra|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ formNovaRegra.Nome_Regra|as_crispy_field }}
+            </div>
+            <div class="col-3">
+                {{ formNovaRegra.Percentual_Comissao|as_crispy_field }}
+            </div>
+            <div class="col-3">
+                {{ formNovaRegra.Numero_Parcelas_Comissao|as_crispy_field }}
+            </div>
+        </div>
+
+        <h5 style="color: #932523;">Regras de Estorno</h5>
+        <div class="form-row">
+            <div class="col-4">
+                {{ formNovaRegra.Tempo_Acompanhamento_Estorno|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ formNovaRegra.Percentual_Estorno|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ formNovaRegra.Numero_Parcelas_Estorno|as_crispy_field }}
+            </div>
+        </div>
+
+        <h5 style="color: #932523;">Data de uso da Regra</h5>
+        <div class="form-row">
+            <div class="col-6">
+                {{ formNovaRegra.Inicio_Regra|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ formNovaRegra.Fim_Regra|as_crispy_field }}
+            </div>
+        </div>
+
+        <h5 style="color: #932523;">Data Corte de Relatório</h5>
+        {{ formNovaRegra.Limite_Relatorio|as_crispy_field }}
+
+    </div>
+    <hr>
+    <center>
+        <button type="submit" class="btn btn-danger mb-3">CADASTRAR</button>
+    </center>
+</form>
+
+<script>
+
+    id_administradora = window.location.href.split('/')[4]
+
+    document.querySelector("#id_Administradora").value = id_administradora
+
+</script>
+
+{% endblock %}
