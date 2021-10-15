@@ -298,3 +298,45 @@ def user_edit(request, id):
     context = {'form': form}
 
     return render(request, 'user/edit.html', context)
+
+@login_required
+def comissao_pagar(request):
+
+    context = {}
+
+    return render(request, 'comissao/pagar.html', context)
+
+@login_required
+def comissao_receber(request):
+
+    context = {}
+
+    return render(request, 'comissao/receber.html', context)
+
+@login_required
+def fluxos_futuros(request):
+
+    context = {}
+
+    return render(request, 'comissao/fluxos_futuros.html', context)
+
+@login_required
+def financeiro_recebidas(request):
+
+    context = {}
+
+    return render(request, 'comissao/financeiro_recebidas.html', context)
+
+@login_required
+def financeiro_pagas(request):
+
+    context = {}
+
+    return render(request, 'comissao/financeiro_pagas.html', context)
+
+@login_required
+def lances_relatorio(request):
+
+    context = {}
+
+    return render(request, 'lances/relatorio.html', context)

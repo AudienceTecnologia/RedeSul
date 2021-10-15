@@ -27,4 +27,12 @@ urlpatterns = [
     path('user_lista/', views.user_lista, name='user_lista'),
     path('user_delete/<int:id>', views.user_delete, name='user_delete'),
     path('user_edit/<int:id>', views.user_edit, name='user_edit'),
+    
+    path('comissao_pagar/', views.comissao_pagar, name='comissao_pagar'),
+    path('comissao_receber/', views.comissao_receber, name='comissao_receber'),
+    path('fluxos_futuros/', views.fluxos_futuros, name='fluxos_futuros'),
+    path('financeiro_recebidas/', views.financeiro_recebidas, name='financeiro_recebidas'),
+    path('financeiro_pagas/', views.financeiro_pagas, name='financeiro_pagas'),
+    
+    path('lances_relatorio/', views.lances_relatorio, name='lances_relatorio'),
 ]

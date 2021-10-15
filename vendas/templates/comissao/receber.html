@@ -1,0 +1,210 @@
+{% extends 'home.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<!--Bootstrap 5-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    body {
+        font-size: 16px;
+    }
+
+    .form-select {
+        font-size: 13px;
+        height: 35px;
+        width: 150px;
+        border-radius: 9px;
+        margin-bottom: 0px;
+        margin-top: 70px;
+        float: right;
+
+    }
+
+    .select-label {
+        display: none;
+    }
+
+
+    .titulo {
+        margin-top: 70px;
+    }
+
+
+    .Recebido {
+        color: chartreuse;
+        font-size: 15px;
+        margin-left: 85%;
+    }
+
+    .Tprevisto {
+        color: rgb(167, 33, 33);
+        font-size: 15px;
+        margin-left: 85%;
+    }
+
+    button.link {
+        border: none;
+        background-color: transparent;
+    }
+
+
+    #a {
+
+        color: black;
+
+    }
+
+    #a:focus {
+        background-color: none;
+        color: rgb(187, 69, 69);
+    }
+
+    #aa {
+
+        color: black;
+    }
+
+    #aa:focus {
+        background-color: none;
+        color: rgb(187, 69, 69);
+    }
+
+    #INTEXT {
+        font-size: 12px;
+        float: right;
+        margin-bottom: 0px;
+    }
+
+    #adm {
+        margin-right: 250px;
+    }
+
+    #tabela {
+        font-size: 0.90em;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col mt-5">
+            <h2 class="titulo">Comissões à Receber</h2>
+        </div>
+        <div class="col" style="margin-top: -2%;">
+            <select class="form-select text-center" id="mes">
+                <option selected disabled value="" class="select-label">Mês</option>
+                <option value="1">Janeiro</option>
+                <option value="2">Fevereiro</option>
+                <option value="3">Março</option>
+                <option value="4">Abril</option>
+                <option value="5">Maio</option>
+                <option value="6">Junho</option>
+                <option value="7">Julho</option>
+                <option value="8">Agosto</option>
+                <option value="9">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+            </select>
+
+        </div>
+        <div class="col" style="margin-top: -2%;" id="aaa">
+            <select class="form-select text-center" id="adm">
+                <option selected disabled value="" class="select-label">Administradora</option>
+                <option value="1">Maggi</option>
+                <option value="2">Itau</option>
+                <option value="3">Caixa</option>
+            </select>
+        </div>
+
+
+        <div style="margin-top: -3%;">
+            <div class="nav nav-tabs" id="INTEXT">
+                <button class="nav-link" id="a" data-bs-toggle="tab" type="button"
+                    aria-selected="true">REP.INTERNO</button>
+                <button class="nav-link" id="aa" data-bs-toggle="tab" type="button"
+                    aria-selected="true">REP.EXTERNO</button>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-hover text-center mt-5" id="tabela">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Administradora</th>
+                <th scope="col">Comissão Bruta</th>
+                <th scope="col">Extorno</th>
+                <th scope="col">Comissão Liquida</th>
+                <th scope="col">Desconto</th>
+                <th scope="col">Data de Recebimento</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+
+                    </div>
+                </th>
+                <td>Tiago</td>
+                <td>R$ 210.000,00</td>
+                <td>R$ 210.000,00</td>
+                <td>R$ 210.000,00</td>
+                <td>R$ 210.000,00</td>
+                <td><input type="text"></td>
+                <td>15/07/2021</td>
+                <td><button class="link"><i class="fa fa-pencil"></i></button>
+                </td>
+                <td><button class="link"><i class="fas fa-file-alt" style="color: red;"></i></button></td>
+            </tr>
+            <tr>
+                <th>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+
+                    </div>
+                </th>
+                <td>Evandro</td>
+                <td>R$ 220.055,00</td>
+                <td>R$ 220.055,00</td>
+                <td>R$ 220.055,00</td>
+                <td>R$ 210.000,00</td>
+                <td><input type="text"></td>
+                <td>15/07/2021</td>
+                <td><button class="link"><i class="fa fa-pencil"></i></button>
+                </td>
+                <td><button class="link"><i class="fas fa-file-alt" style="color: red;"></i></button></td>
+            </tr>
+            <tr>
+                <th>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+
+                    </div>
+                </th>
+                <td>Cristian</td>
+                <td>R$ 179.262,00</td>
+                <td>R$ 179.262,00</td>
+                <td>R$ 179.262,00</td>
+                <td>R$ 210.000,00</td>
+                <td><input type="text"></td>
+                <td>15/07/2021</td>
+                <td><button class="link"><i class="fa fa-pencil"></i></button>
+                </td>
+                <td><button class="link"><i class="fas fa-file-alt" style="color: red;"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2 class="Recebido">Recebido <i class="fa fa-caret-right" style="color: black;"></i></h2>
+    <h2 class="Tprevisto">Total previsto <i class="fa fa-caret-right" style="color: black;"></i>
+    </h2>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+{% endblock %}

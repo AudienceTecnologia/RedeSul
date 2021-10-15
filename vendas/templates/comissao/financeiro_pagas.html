@@ -1,0 +1,220 @@
+{% extends 'home.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<!--Bootstrap 5-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<!--Bootstrap 5-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<!--Icones bootstrap-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<!--Fonte Montserrat Regular -->
+<style>
+    :root {
+        --black-color: rgba(0, 0, 0, 0.8);
+        --black60-color: rgba(0, 0, 0, 0.60);
+        --white-color: rgba(255, 255, 255, 1);
+        --red-color: rgba(183, 34, 32, 1);
+        --dark-red-color: rgba(115, 48, 48, 1);
+    }
+
+    /* Body imagem de fundo 2 */
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-image: url(../../img/fundo-2.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    /* Body imagem de fundo 2 */
+
+    /* Header */
+
+    header nav#header-test {
+        background-color: var(--white-color);
+        box-shadow: 0px 12px 12px #00000012;
+        height: 9.44vh;
+        margin-bottom: 4.96vh;
+    }
+
+    /* Header */
+
+    /* Container financeiro */
+
+    div.container-financeiro {
+        margin-top: 5vh;
+    }
+
+    .titulo-grande {
+        color: var(--black-color);
+        font-weight: 500;
+        font-size: 2em;
+        line-height: 2em;
+    }
+
+    /* Container Financeiro */
+
+    /* Select box */
+
+    .select-box {
+        font-size: 0.80em;
+        height: 44px;
+        width: 165px;
+        border-radius: 9px;
+        border-color: rgba(193, 193, 193, 1);
+        border-width: 1px;
+        cursor: pointer;
+    }
+
+    .select-box:focus {
+        transition: 50ms;
+        box-shadow: none;
+        border-color: var(--red-color);
+        border-width: 3px;
+    }
+
+    .select-box:hover {
+        border-color: var(--red-color);
+    }
+
+    .select-label {
+        display: none;
+    }
+
+    /*Ocultando o option selecionado*/
+
+    /* select box */
+
+    /* Links */
+
+    .link-tabela-financeiro {
+        text-decoration: none;
+        color: var(--black60-color);
+        white-space: nowrap;
+    }
+
+    .link-tabela-financeiro:hover {
+        text-decoration: underline;
+        color: var(--red-color);
+    }
+
+    .link-tabela-financeiro:focus {
+        font-weight: bold;
+        text-decoration: underline;
+        color: var(--red-color);
+    }
+
+    .link-tabela-financeiro-ativo {
+        font-weight: bold;
+        text-decoration: underline;
+        color: var(--red-color);
+        white-space: nowrap;
+    }
+
+    .link-tabela-financeiro-ativo:hover {
+        text-decoration: underline;
+        color: var(--red-color);
+    }
+
+    .linha-link-tabela-financeiro {
+        margin-top: 2.96vh;
+        margin-bottom: 2.96vh;
+    }
+
+    /* Links */
+
+    /* Tabela */
+
+    .tabela-principal {
+        border-color: rgba(112, 112, 112, 0.3);
+        --bs-table-bg: none;
+        background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(220, 220, 220, 1));
+    }
+</style>
+<div class="container container-financeiro">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-8">
+                    <h1 class="titulo-grande">Financeiro 2021</h1>
+                </div>
+                <div class="col-2">
+                    <select class="form-select text-center select-box">
+                        <option selected disabled value="" class="select-label">Representante</option>
+                        <option value="1">Representante 1</option>
+                        <option value="2">Representante 2</option>
+                        <option value="3">Representante 3</option>
+                    </select>
+                    <!--Administradora-->
+                </div>
+                <div class="col-2">
+                    <select class="col-2 form-select text-center select-box">
+                        <option selected disabled value="" class="select-label">Ano</option>
+                        <option value="1">2018</option>
+                        <option value="2">2019</option>
+                        <option value="3">2020</option>
+                        <option value="3">2021</option>
+                    </select>
+                    <!--Ano-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Linha titulo e select-->
+    <div class="row">
+        <div class="col-12">
+            <div class="row linha-link-tabela-financeiro">
+                <div class="col-2">
+                    <a href="{% url 'financeiro_recebidas' %}" class="link-tabela-financeiro">Comissões Recebidas</a>
+                </div>
+                <div class="col-2">
+                    <a href="{% url 'financeiro_pagas' %}" class="link-tabela-financeiro-ativo">Comissões Pagas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Links tabela-->
+    <div class="row">
+        <div class="col-6 container">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr class="tabela-principal">
+                        <th scope="col">Representante</th>
+                        <th scope="col">Comissão</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nome Representante</td>
+                        <td>R$ 500.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>Nome representante</td>
+                        <td>R$ 500.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>Nome representante</td>
+                        <td>R$ 500.000,00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--Tabela-->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+<!--Bootstrap JS-->
+{% endblock %}
